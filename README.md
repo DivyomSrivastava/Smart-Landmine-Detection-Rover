@@ -88,4 +88,6 @@ Written in Arduino C++ using the TinyGPS++ library for GPS parsing and ESP8266 A
 
 Developed at **PSIT Kanpur – 2025**
 
-- Divyom Srivastava *(Add teammates)*
+- Divyom Srivastava
+- [Mohd. Faiz](https://www.linkedin.com/in/mohd-faiz-710661353)
+- [Riya Verma](https://www.linkedin.com/in/riya-verma-641230317)
