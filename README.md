@@ -1,5 +1,6 @@
-# Smart-Landmine-Detection-Rover
-
+<p align="center">
+  <img src="Images/banner.svg" width="100%">
+</p>
 An Arduino-based smart rover that detects metallic objects using a custom-built metal detection coil and automatically shares the detected location via GPS and ESP8266 as an SMS with a Google Maps link.
 
 ---
