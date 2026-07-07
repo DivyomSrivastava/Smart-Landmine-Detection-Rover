@@ -1,6 +1,9 @@
 <p align="center">
-  <img src="Images/banner.svg" width="100%">
+  <img src="C:\Users\HP\Desktop\banner.svg" width="100%">
 </p>
+
+## Project Overview
+
 An Arduino-based smart rover that detects metallic objects using a custom-built metal detection coil and automatically shares the detected location via GPS and ESP8266 as an SMS with a Google Maps link.
 
 ---
