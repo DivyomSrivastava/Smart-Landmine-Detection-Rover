@@ -84,10 +84,4 @@ Written in Arduino C++ using the TinyGPS++ library for GPS parsing and ESP8266 A
 - Live GPS tracking on a web dashboard
 - Camera-based remote monitoring
 
-## 👥 Team
 
-Developed at **PSIT Kanpur – 2025**
-
-- Divyom Srivastava
-- [Mohd. Faiz](https://www.linkedin.com/in/mohd-faiz-710661353)
-- [Riya Verma](https://www.linkedin.com/in/riya-verma-641230317)
