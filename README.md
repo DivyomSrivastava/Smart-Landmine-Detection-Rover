@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="banner.svg" width="100%">
-</p>
+# Smart Landmine Detection-Rover
 
 ## Project Overview
 
