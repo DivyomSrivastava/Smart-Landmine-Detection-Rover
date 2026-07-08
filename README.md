@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="C:\Users\HP\Desktop\banger.svg" width="100%">
+  <img src="Desktop\banger.svg" width="100%">
 </p>
 
 # Smart-Landmine-Detection-Rover
