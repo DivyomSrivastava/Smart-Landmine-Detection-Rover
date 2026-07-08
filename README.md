@@ -1,225 +1,135 @@
-# 🚜 Smart Landmine Detection Rover using Arduino, GPS & ESP8266
-
 <p align="center">
-
-![Arduino](https://img.shields.io/badge/Arduino-UNO-blue?style=for-the-badge)
-![ESP8266](https://img.shields.io/badge/ESP8266-WiFi-success?style=for-the-badge)
-![GPS](https://img.shields.io/badge/GPS-Neo--6M-red?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
-
+  <img src="C:\Users\HP\Desktop\banger.svg" width="100%">
 </p>
 
----
+# Smart-Landmine-Detection-Rover
 
-## 📖 Overview
+An Arduino-based smart rover that detects buried metallic objects using a custom-built metal detection coil, triggers an immediate buzzer alert, and automatically sends the GPS coordinates of the detected location to the operator's phone as an SMS with a Google Maps link — all without approaching the hazardous area.
 
-The **Smart Landmine Detection Rover** is an IoT-enabled robotic system developed to simulate the detection of buried landmines using a **custom-built metal detection coil**. The project combines **embedded systems, robotics, GPS positioning, and wireless communication** to identify metallic objects and instantly notify the user with the exact location.
+## ✨ Features
 
-Whenever the rover detects a metallic object, the system activates a buzzer, retrieves the current GPS coordinates, and sends the location to the user's mobile phone as an **SMS containing the latitude, longitude, and a Google Maps link**. This enables remote identification of potentially hazardous locations without requiring a person to approach the area.
+- Real-time metal detection using a custom-built coil
+- Immediate buzzer alert on metal detection
+- Automatic GPS location retrieval on detection
+- SMS alert with latitude, longitude, and a Google Maps URL
+- ESP8266-based wireless data transmission
+- Arduino-controlled rover navigation via L298N motor driver
+- Fully remote operation — no physical approach required
 
-This project was developed as part of our college exhibition to demonstrate how low-cost embedded systems can be integrated into practical safety and defense-oriented applications.
-
----
-
-## 📷 Project Preview
-
-<p align="center">
-<img src="Images/Rover.jpg" width="700">
-</p>
-
----
-
-# ✨ Features
-
-- 🚜 Remote controlled rover
-- 🔍 Custom-built metal detection coil
-- 📍 Real-time GPS location tracking
-- 📲 Automatic SMS notification
-- 🌍 Google Maps location sharing
-- 🔊 Instant buzzer alert on metal detection
-- ⚡ Arduino-based embedded system
-- 📡 Wireless communication using ESP8266
-
----
-
-# 🛠 Hardware Used
+## 🔩 Components Used
 
 | Component | Quantity |
-|------------|----------|
+|---|---|
 | Arduino UNO | 1 |
 | ESP8266 Wi-Fi Module | 1 |
 | GPS Module (Neo-6M) | 1 |
-| L298N Motor Driver | 1 |
-| Custom Metal Detection Coil | 1 |
-| Buzzer | 1 |
-| DC Motors | 4 |
-| Robot Chassis | 1 |
-| Wheels | 4 |
-| Battery Pack | 1 |
+| Metal Detection Coil (Custom-built) | 1 |
+| L298N Motor Driver Module | 1 |
+| DC Gear Motors | 4 |
+| Active Buzzer | 1 |
+| Robot Chassis with Wheels | 1 |
+| 11.1V Li-ion Battery Pack | 1 |
+| Buck Converter (LM2596) | 1 |
+| Jumper Wires | As required |
 
----
+## ⚙️ Working Principle
 
-# 💻 Software Used
+The custom-built metal detection coil continuously scans the ground as the rover moves across the target area. When a metallic object is detected, the coil sends a signal to the Arduino, which immediately triggers a buzzer alert and activates the GPS module to retrieve the current coordinates.
 
-- Arduino IDE
-- Embedded C
-- TinyGPS++ Library
-- ESP8266 Library
+The ESP8266 module then transmits an SMS to the operator's phone containing the latitude, longitude, and a direct Google Maps link to the detected location. The operator can view the exact detection point on Google Maps without needing to approach the area.
 
----
-
-# ⚙ Working Principle
-
-1. The rover is remotely driven across the target area.
-
-2. The custom-built metal detection coil continuously scans the ground for metallic objects.
-
-3. Once a metallic object is detected, the buzzer immediately generates an alert.
-
-4. The detection event activates the GPS module to obtain the current latitude and longitude.
-
-5. The ESP8266 module processes the GPS data.
-
-6. An SMS containing the GPS coordinates along with a Google Maps URL is automatically sent to the user's mobile phone.
-
-7. Opening the Google Maps link displays the exact detected location.
-
----
-
-# 🔄 System Architecture
+### 🔄 System Architecture
 
 ```
-                 Metal Detection Coil
-                         │
-                         ▼
-                  Arduino UNO
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-    Buzzer Alert      GPS Module      Motor Driver
-        │                │                │
-        │         Latitude & Longitude   │
-        │                │                │
-        └──────────────┬─┘                │
-                       ▼                  ▼
-                  ESP8266 Module      Rover Movement
-                       │
-                       ▼
-              SMS + Google Maps Link
-                       │
-                       ▼
-                  User's Mobile Phone
+        Metal Detection Coil
+                │
+                ▼
+          Arduino UNO
+                │
+   ┌────────────┼────────────┐
+   │            │            │
+   ▼            ▼            ▼
+Buzzer Alert GPS Module  Motor Driver
+                │               │
+          Lat & Long      Rover Movement
+                │
+                ▼
+         ESP8266 Module
+                │
+                ▼
+      SMS + Google Maps Link
+                │
+                ▼
+        User's Mobile Phone
 ```
 
----
+## 🛠 Methodology
 
-# 🔌 Circuit Diagram
+1. Rover is remotely operated across the target area.
+2. Metal detection coil continuously scans the ground beneath the rover.
+3. On detecting metal → Arduino triggers the buzzer immediately.
+4. GPS module retrieves current latitude and longitude.
+5. ESP8266 formats the coordinates into a message with a Google Maps URL.
+6. SMS is sent to the operator's phone.
+7. Operator views the exact location on Google Maps without approaching the area.
 
-<p align="center">
-<img src="Images/Circuit_Diagram.png" width="900">
-</p>
+## 🔌 Block Diagram
 
----
+*(Add block diagram image here)*
 
-# 🔗 Hardware Connections
+The entire system runs on an **11.1V Li-ion battery pack**, stepped down via a buck converter to power the Arduino and logic circuitry. The ESP8266 and GPS module communicate with the Arduino over serial, while the L298N motor driver handles rover movement directly from the 11.1V supply.
 
-| Arduino Pin | Connected Device |
-|--------------|-----------------|
-| D2 | Metal Detection Coil |
-| D3 | Buzzer |
-| D4 | GPS TX |
-| D5 | GPS RX |
-| D6 | ESP8266 TX |
-| D7 | ESP8266 RX |
-| D8 | L298N IN1 |
-| D9 | L298N IN2 |
-| D10 | L298N IN3 |
-| D11 | L298N IN4 |
-| 5V | GPS Module |
-| GND | Common Ground |
+## 📷 Circuit Diagram
 
----
+*(Add circuit diagram image here)*
 
-# 📲 SMS Output
+## 🤖 Rover Images
 
-Example message received after detecting a metallic object:
+*(Add rover and team images here)*
+
+## 📲 SMS Output Format
 
 ```
-⚠ Metal Detected!
+⚠️ Metal Detected!
 
-Latitude : 26.44991
+Latitude  : 26.4499
+Longitude : 80.3319
 
-Longitude : 80.33162
-
-Google Maps
-
-https://maps.google.com/?q=26.44991,80.33162
+📍 Location:
+https://maps.google.com/?q=26.4499,80.3319
 ```
 
----
+## 💻 Software Implementation
 
-# 📸 Project Gallery
+The firmware is written in Arduino C++ using the TinyGPS++ library for GPS coordinate parsing and ESP8266 AT commands for wireless SMS transmission.
 
-## 🔧 Internal Electronics
+Key functions:
+- `detectMetal()` — reads the coil signal and triggers the buzzer on detection.
+- `getLocation()` — parses GPS NMEA data using TinyGPS++ to extract latitude and longitude.
+- `sendSMS()` — formats the coordinates and Google Maps URL and transmits the SMS via ESP8266.
+- `loop()` — continuously checks for metal detection and triggers the alert + location workflow.
 
-<p align="center">
-<img src="Images/Circuit.jpg" width="700">
-</p>
+## 🌍 Applications
 
----
+- Landmine detection simulation and research
+- Border surveillance and defense applications
+- Hazardous area inspection without human risk
+- Embedded systems and IoT education
 
-## 🚜 Final Rover
+## 🚀 Future Improvements
 
-<p align="center">
-<img src="Images/Rover.jpg" width="700">
-</p>
+- Replace coil-based sensing with Ground Penetrating Radar (GPR)
+- Add autonomous navigation using ROS 2
+- Integrate obstacle avoidance for fully independent operation
+- Live GPS tracking on a real-time web dashboard
+- Camera-based remote monitoring
+- Solar-powered operation for extended field deployment
 
----
+## 👥 Team
 
-## 👨‍💻 Team Presentation
-
-<p align="center">
-<img src="Images/Team.jpg" width="700">
-</p>
-
----
-
-# 🌍 Applications
-
-- Landmine Detection Research
-- Hazardous Area Monitoring
-- Defense Demonstrations
-- Metal Object Detection
-- Robotics Education
-- Embedded Systems Projects
-
----
-
-# 🚀 Future Scope
-
-- Autonomous Navigation using ROS 2
-- Camera Integration
-- AI-based Object Classification
-- Live Cloud Dashboard
-- Mobile Application Integration
-- Solar Powered Operation
-- Improved Metal Detection Range
+**Divyom Srivastava** ([LinkedIn](https://www.linkedin.com/in/divyom-srivastava-260b95342/))  
 
 
+B.Tech – PSIT Kanpur · 2025
 
-
-# ⭐ Acknowledgements
-
-We sincerely thank our faculty mentors and the Department of Computer Science & Engineering at **PSIT Kanpur** for their continuous guidance and encouragement throughout the development and presentation of this project.
-
----
-
-## 📬 Connect With Me
-
-**Divyom Srivastava**
-
-- 💼 LinkedIn: *(https://www.linkedin.com/in/divyom-srivastava-260b95342/)*
----
-
-### ⭐ If you found this project interesting, don't forget to star the repository!
+⭐ If you found this project useful, consider giving it a star!
