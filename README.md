@@ -71,8 +71,8 @@ Buzzer Alert GPS Module  Motor Driver
 
 ## 🔌 Block Diagram
 
-*<img width="774" height="713" alt="Screenshot 2026-07-15 224458" src="https://github.com/user-attachments/assets/eec25460-8d17-4def-bcb0-6b43e106df2b" />
-*
+<img width="774" height="713" alt="Screenshot 2026-07-15 224458" src="https://github.com/user-attachments/assets/eec25460-8d17-4def-bcb0-6b43e106df2b" />
+
 
 The entire system runs on an **11.1V Li-ion battery pack**, stepped down via a buck converter to power the Arduino and logic circuitry. The ESP8266 and GPS module communicate with the Arduino over serial, while the L298N motor driver handles rover movement directly from the 11.1V supply.
 
