@@ -83,6 +83,8 @@ The entire system runs on an **11.1V Li-ion battery pack**, stepped down via a b
 
 *<img width="1305" height="647" alt="Screenshot 2026-07-15 223251" src="https://github.com/user-attachments/assets/68c8315a-870f-46d0-9621-4268832699ec" />
 *
+*<img width="1200" height="1600" alt="circuit" src="https://github.com/user-attachments/assets/065a333d-4a32-43a8-a38e-696d856dab6b" />
+*
 
 ## 📲 SMS Output Format
 
